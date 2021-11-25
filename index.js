@@ -10,8 +10,10 @@ const main = async() => {
         // get the menu
         opt = await inquirerMenu(); 
         console.log({opt});
+
+        
         // pause the ejecution
-        await pause();
+        if( opt !== 0 ) await pause();
 
     }while( opt !== 0)
 
