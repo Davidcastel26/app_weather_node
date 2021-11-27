@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-  const api = 'pk.eyJ1IjoiZGF2aWQtY2FzdGVsMjYiLCJhIjoiY2t3aDJycHRxMDE5dzJ2dGd2ZWplbjA0NSJ9.c5UVVKxhEmKXbythLKVkeA';
+  const apikey = 'pk.eyJ1IjoiZGF2aWQtY2FzdGVsMjYiLCJhIjoiY2t3aDJycHRxMDE5dzJ2dGd2ZWplbjA0NSJ9.c5UVVKxhEmKXbythLKVkeA';
 
  class Searchings{
 
@@ -20,10 +20,12 @@ const axios = require('axios');
             const instance = axios.create({
                 baseURL:`https://api.mapbox.com/geocoding/v5/mapbox.places/${place}.json`,
                 params:{
-                    'access_token':api,
-                    'limit':5
+                    'access_token':apikey,
+                    'limit':2  
                 }
             })
+
+            const resp = await instance.get(); 
 
             // const resp = await axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/anti.json?access_token=${api}&limit=5`)
             console.log(resp.data);
