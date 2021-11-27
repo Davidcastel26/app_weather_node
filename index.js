@@ -8,7 +8,7 @@ const Searchings = require("./models/searchings");
 const main = async() => {
     
     // const text = await readInput('Hello: ');
-    const shearchs = new Searchings()
+    const searchs = new Searchings()
     let opt;
 
     do{
@@ -20,7 +20,8 @@ const main = async() => {
             case 1:
                 //show msg  
                 const place = await readInput('City: ');
-                console.log(place);
+                // console.log(place);
+                await searchs.city( place );
                 //get the places
 
                 //select the place
@@ -45,3 +46,5 @@ const main = async() => {
 }
 
 main()
+
+//70
