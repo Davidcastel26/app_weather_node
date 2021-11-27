@@ -1,9 +1,13 @@
+require('dotenv').config()
+
 //inquirer
 const { readInput, 
         inquirerMenu, 
         pause } = require("./helpers/inquirer");
 //Modules Searchings
 const Searchings = require("./models/searchings");
+
+// console.log(process.env);
 
 const main = async() => {
     

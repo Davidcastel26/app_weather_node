@@ -1,7 +1,5 @@
 const axios = require('axios');
 
-  const apikey = 'pk.eyJ1IjoiZGF2aWQtY2FzdGVsMjYiLCJhIjoiY2t3aDJycHRxMDE5dzJ2dGd2ZWplbjA0NSJ9.c5UVVKxhEmKXbythLKVkeA';
-
  class Searchings{
 
     history = ['New York','Madrid','Medellin']
@@ -13,7 +11,7 @@ const axios = require('axios');
 
     get paramsMapbox(){
         return {
-            'access_token':apikey,
+            'access_token': process.env.MAPBOX_KEY,
             'limit':2  
         }
     }
