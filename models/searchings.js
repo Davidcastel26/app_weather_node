@@ -17,7 +17,15 @@ const axios = require('axios');
             // console.log(place);
             // console.log('cuidad', place);
             
-            const resp = await axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/anti.json?access_token=${api}&limit=5`)
+            const instance = axios.create({
+                baseURL:`https://api.mapbox.com/geocoding/v5/mapbox.places/${place}.json`,
+                params:{
+                    'access_token':api,
+                    'limit':5
+                }
+            })
+
+            // const resp = await axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/anti.json?access_token=${api}&limit=5`)
             console.log(resp.data);
 
             
