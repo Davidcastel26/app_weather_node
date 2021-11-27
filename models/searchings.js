@@ -11,6 +11,13 @@ const axios = require('axios');
 
     }
 
+    get paramsMapbox(){
+        return {
+            'access_token':apikey,
+            'limit':2  
+        }
+    }
+
     async city(place = ''){
         // petition http
         try{
@@ -19,10 +26,7 @@ const axios = require('axios');
             
             const instance = axios.create({
                 baseURL:`https://api.mapbox.com/geocoding/v5/mapbox.places/${place}.json`,
-                params:{
-                    'access_token':apikey,
-                    'limit':2  
-                }
+                params: this.paramsMapbox
             })
 
             const resp = await instance.get(); 
