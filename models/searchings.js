@@ -30,10 +30,15 @@ const axios = require('axios');
             const resp = await instance.get(); 
 
             // const resp = await axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/anti.json?access_token=${api}&limit=5`)
-            console.log(resp.data);
-
             
-            return [];// return all the places that i request
+            //get the inf
+            // console.log(resp.data.features);
+            return resp.data.features.map( p => ({
+                id: p.id,
+                name: p.place_name,
+                lng: p.center[0],
+                lat: p.center[1]
+            }))
         }
         catch (error){
         
