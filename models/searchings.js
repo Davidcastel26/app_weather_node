@@ -48,6 +48,38 @@ const axios = require('axios');
 
     } 
 
+    get paramsWeatherMap(){
+        return{
+            appid: process.env.OPENWEATHER_KEY,
+            units: this.paramsWeatherMap,
+            language : 'en'
+        }
+    }
+    
+    async weatherPlace(lat, lon){
+        try{
+            // instance axios.create()
+            const instance = axios.create({
+                baseURL:`https://api.openweathermap.org/data/2.5/weather`,
+                params: {...this.paramsWeatherMap, lat, lon}
+            })
+            // resp.data
+            const resp = await instance.get()
+            console.log(resp);
+           const {weather, main} = resp.data
+            console.log(weather);
+            return {
+                min:main.temp_min,
+                max:main.temp_max,
+                temp:main.temp,
+                desc:weather[0].description,
+            };
+
+        }catch(err){
+
+        }
+    }
+
  }
 
  module.exports = Searchings;

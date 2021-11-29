@@ -13,7 +13,7 @@ const Searchings = require("./models/searchings");
 const main = async() => {
     
     // const text = await readInput('Hello: ');
-    const searchs = new Searchings()
+    const searchs = new Searchings();
     let opt;
 
     do{
@@ -38,13 +38,19 @@ const main = async() => {
                 // console.log( placeSelected); array with the info
 
                 //weather data ----------------------------
+                const weather = await searchs.weatherPlace(placeSelected.lat, placeSelected.lng)
+
+                console.log(weather);
+
+                //show results ----------------------------
                 console.log('\nInfo from the place\n'.green);
                 console.log('City: ', placeSelected.name);
                 console.log('Lat', placeSelected.lat );
                 console.log('Lng', placeSelected.lng);
-                console.log('Temperatures:',);
-                console.log('Min');
-                console.log('Max');
+                console.log('Temperatures: ', weather.temp);
+                console.log('Min: ', weather.min);
+                console.log('Max: ', weather.max);
+                console.log('Looks like: ', weather.desc);
             break;
         }
         
