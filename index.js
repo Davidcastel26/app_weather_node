@@ -34,6 +34,8 @@ const main = async() => {
                 //select the place ----------------------------
                 const idSelected = await listPlaces(places);
                 // console.log({ idSelected });
+
+                if( id === "0") continue;
                 const placeSelected = places.find( l => l.id === idSelected)
                 // console.log( placeSelected); array with the info
 
@@ -51,6 +53,9 @@ const main = async() => {
                 console.log('Min: ', weather.min);
                 console.log('Max: ', weather.max);
                 console.log('Looks like: ', weather.desc);
+            break;
+            case 2:
+                console.log('holi');
             break;
         }
         
