@@ -40,7 +40,7 @@ const main = async() => {
                 //weather data ----------------------------
                 const weather = await searchs.weatherPlace(placeSelected.lat, placeSelected.lng)
 
-                console.log(weather);
+                // console.log(weather);
 
                 //show results ----------------------------
                 console.log('\nInfo from the place\n'.green);

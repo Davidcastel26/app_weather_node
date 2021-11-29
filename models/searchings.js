@@ -51,7 +51,7 @@ const axios = require('axios');
     get paramsWeatherMap(){
         return{
             appid: process.env.OPENWEATHER_KEY,
-            units: this.paramsWeatherMap,
+            units: 'metric',
             language : 'en'
         }
     }
@@ -65,9 +65,9 @@ const axios = require('axios');
             })
             // resp.data
             const resp = await instance.get()
-            console.log(resp);
+            // console.log(resp);
            const {weather, main} = resp.data
-            console.log(weather);
+            // console.log(weather);
             return {
                 min:main.temp_min,
                 max:main.temp_max,
