@@ -23,22 +23,23 @@ const main = async() => {
 
         switch(opt){
             case 1:
-                //show msg  
+                //show msg  ----------------------------
                 const term = await readInput('City: ');
                 // console.log(place);
                 
-                //get the places
+                //get the places ----------------------------
                 const places = await searchs.city( term );
-                console.log(places);
+                // console.log(places);
                 
-                //select the place
+                //select the place ----------------------------
                 const idSelected = await listPlaces(places);
                 // console.log({ idSelected });
-                const placeSelected = places.find( l =>l.id === id)
+                const placeSelected = places.find( l => l.id === idSelected)
+                // console.log( placeSelected); array with the info
 
-                //weather data
+                //weather data ----------------------------
                 console.log('\nInfo from the place\n'.green);
-                console.log('City: ', placeSelected.name );
+                console.log('City: ', placeSelected.name);
                 console.log('Lat', placeSelected.lat );
                 console.log('Lng', placeSelected.lng);
                 console.log('Temperatures:',);
