@@ -34,10 +34,14 @@ const main = async() => {
                 //select the place ----------------------------
                 const idSelected = await listPlaces(places);
                 // console.log({ idSelected });
+                if( idSelected === '0') continue;
 
-                if( id === "0") continue;
+                
                 const placeSelected = places.find( l => l.id === idSelected)
                 // console.log( placeSelected); array with the info
+                
+                //save into DB
+                searchs.addHistory( placeSelected.name)
 
                 //weather data ----------------------------
                 const weather = await searchs.weatherPlace(placeSelected.lat, placeSelected.lng)
@@ -55,7 +59,10 @@ const main = async() => {
                 console.log('Looks like: ', weather.desc);
             break;
             case 2:
-                console.log('holi');
+                searchs.history.forEach( (place, i) => {
+                    const idx = `${ i + 1}.`.magenta;
+                    console.log(`${idx} ${place}`);
+                })
             break;
         }
         

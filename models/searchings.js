@@ -80,6 +80,14 @@ const axios = require('axios');
         }
     }
 
+    addHistory( place = ''){
+        //prevent duplicate
+        this.history.unshift( place );
+
+        // save into DB 
+        
+    }
+
  }
 
  module.exports = Searchings;
