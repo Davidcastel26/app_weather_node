@@ -81,10 +81,23 @@ const axios = require('axios');
     }
 
     addHistory( place = ''){
+        //this will help us to discard any kind of similar data that we could get
+        if( this.history.includes( place.toLowerCase())){
+            return
+        }
+
         //prevent duplicate
-        this.history.unshift( place );
+        this.history.unshift( place.toLowerCase() );
 
         // save into DB 
+
+    }
+
+    saveDB(){
+
+    }
+
+    readDB(){
         
     }
 
