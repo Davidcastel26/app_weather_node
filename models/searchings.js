@@ -98,7 +98,7 @@ class Searchings{
         if( this.history.includes( place.toLowerCase())){
             return
         }
-
+        this.history = this.history.splice(0,5);
         //prevent duplicate
         this.history.unshift( place.toLowerCase() );
 
