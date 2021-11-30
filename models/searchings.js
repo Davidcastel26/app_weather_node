@@ -11,10 +11,23 @@ class Searchings{
 
     }
 
+    get historyCopitalized(){
+        //capitalized each word
+        this.readDB()
+    }
+
     get paramsMapbox(){
         return {
             'access_token': process.env.MAPBOX_KEY,
             'limit':2  
+        }
+    }
+
+    get paramsWeatherMap(){
+        return{
+            appid: process.env.OPENWEATHER_KEY,
+            units: 'metric',
+            language : 'en'
         }
     }
 
@@ -50,13 +63,6 @@ class Searchings{
 
     } 
 
-    get paramsWeatherMap(){
-        return{
-            appid: process.env.OPENWEATHER_KEY,
-            units: 'metric',
-            language : 'en'
-        }
-    }
     
     async weatherPlace(lat, lon){
         try{
