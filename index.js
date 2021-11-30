@@ -59,7 +59,8 @@ const main = async() => {
                 console.log('Looks like: ', weather.desc);
             break;
             case 2:
-                searchs.history.forEach( (place, i) => {
+                // searchs.history.forEach( (place, i) => {
+                searchs.historyCopitalized.forEach( (place, i) => {
                     const idx = `${ i + 1}.`.magenta;
                     console.log(`${idx} ${place}`);
                 })

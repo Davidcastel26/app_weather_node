@@ -13,7 +13,12 @@ class Searchings{
 
     get historyCopitalized(){
         //capitalized each word
-        this.readDB()
+        return this.history.map( place => {
+            let words = place.split(' ');
+            words = words.map( w => w[0].toUpperCase() + w.substring(1) );
+
+            return words.join(' ')
+        } )
     }
 
     get paramsMapbox(){
@@ -112,6 +117,12 @@ class Searchings{
     }
 
     readDB(){
+        if(!fs.existsSync( this.dbPath) ) return;
+        // const info .... readFileSync... path {encoding:'utf-8'}
+        const info = fs.readFileSync( this.dbPath, {encoding: 'utf-8'});
+        const data = JSON.parse(info);
+
+        this.history = data.history;
 
     }   
 
